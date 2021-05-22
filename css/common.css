@@ -1,0 +1,351 @@
+/* 기본 초기화 */
+body,span,p,ul,li,h3,h4{
+    margin: 0;
+    padding:0;
+}
+ul{
+    list-style: none;
+}
+body > *{
+    font-family: 'NotoSansKR', sans-serif;
+}
+.w_1440{
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+}
+/* header  */
+header{
+    width: 100px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+.header_bg{
+    width: 0;
+    height: 100vh;
+    /* background: #f0ffef; */
+    transition: all 0.3s;
+}
+.header_act{
+    width: 100px;
+    z-index: 9; 
+}
+.logo{
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+}
+.logo img{
+    width: 100%;
+}
+.menu_box{
+    font-family: 'RIDIBatang';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    transition: transform 0.5s;
+    z-index: 999;
+
+}
+.menu_txt{
+    width: 100px;
+    padding: 10px 0;
+    color: #311b0c;
+    text-align: center;
+    transition: all 0.5s;
+}
+.menu_txt_act{
+    opacity: 0;
+}
+.menu_txt p:nth-child(1){
+    font-size: 15px;
+}
+.menu_txt p:nth-child(2){
+    font-size: 19px;
+}
+.menu_line{
+    width: 20px;
+    height: 1px;
+    background: #311b0c;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.5s;
+}
+.menu_box > .menu_line:nth-child(2){
+    top: 0;
+}
+.menu_box> .menu_line:nth-child(3),
+.menu_box> .menu_line:nth-child(4){
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.menu_box> .menu_line:nth-child(5){
+    bottom: 0;
+}
+.menu_cir{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #4a2b17;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 0.5s;
+}
+.line_disappear{
+    opacity: 0;
+    
+}
+.line_appear{
+    opacity: 1;
+}
+.icon_box{
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 21px;
+    background: #4a2b17;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+}
+.icon_2{
+    margin: 10px 0;
+}
+/* menu_pan관련 */
+.menu_pan{
+    width: 100vw;
+    height: 100vh;
+    background: #f0ffef;
+    position: fixed;
+    left: -130%;
+    top: 0;
+    transition: left 0.5s;
+    overflow: hidden;
+    z-index: 9;
+}
+.menu_pan_act{
+    left: 0;
+}
+.menu_title{
+    color: rgba(0,0,0,0.3);
+    display: flex;
+    margin: 100px 0;
+    justify-content: center;
+}
+.m_title{
+    width: 200px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    box-shadow: 0 0 0 1px #000;
+    font-size: 20px;
+    font-weight: 900;
+    cursor: pointer;
+}
+.m_title_act{
+    color: #000;
+}
+.t_menu_box{
+    width: 1440px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
+    transition: opacity 0.5s;
+    opacity: 0;
+}
+.t_menu_box_act{
+    opacity: 1;
+}
+.t_menu{
+    width: 60%;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.t_sub_menu{
+    width: 210px;
+    border-left: 1px solid;
+}
+.sub_title{
+    height: 27px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 900;
+}
+.t_sub_menu > li{
+    padding-left: 25px;
+    box-sizing: border-box;
+}
+
+.t_sub_menu > li:not(.sub_title){
+    line-height: 25px;
+    margin: 10px 0;
+}
+.t_ad{
+    width: 40%;
+    margin-top: 50px;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.p_ad_img_box img{
+    width: 100%;
+}
+.p_ad_txt{
+    margin-top: 20px ;
+}
+.p_ad_txt p{
+    font-weight: 900;
+    margin-bottom: 2px;
+}
+
+/* 탑배너 */
+.tob_banner_box{
+    width: 100%;
+    height: 80px;
+    position: relative;
+    transition: height 0.5s
+}
+.tob_banner_box_act{
+    height: 0;
+}
+.t_banner{
+    width: 100%;
+    height: 100%;
+    background: url(../img/1/pc_1920X100_top.jpg) no-repeat center / cover;
+   
+}
+.t_banner img{
+    width: 100%;
+}
+.t_banner_icon{
+    width: 50px;
+    height: 30px;
+    background:  url(../img/1/topbnr_open_btn.png) no-repeat center / cover;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%) rotate(180deg);
+    z-index: 1;
+}
+.t_banner_icon_act{
+    transform: translateX(-50%) rotate(0deg);
+}
+/* footer */
+footer{
+    width: 100%;
+    height: 300px;
+    padding-left: 100px;
+    color: #333;
+    background: #f8f8f8;
+    border-top: 1px solid #cfd8cf;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.f_L{
+    width: 60%;
+    padding-top: 50px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+.sns img{
+    margin-right: 20px;
+}
+.link {
+    margin: 20px 0 ;
+    overflow: hidden;
+}
+.link li{
+    padding-right: 30px;
+    float: left;
+    font-size: 16px;
+    font-weight: 500;
+}
+.address span{
+    font-size: 13px;
+    padding: 10px 10px ;
+    position: relative;
+}
+.address span:nth-child(1),
+.address span:nth-child(6){
+    padding-left: 0;
+}
+.copyright{
+    margin-top: 10px;
+}
+
+
+.f_R{
+    width:30%;
+    padding-top: 50px;
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: right;
+}
+.f_R > p{
+    font-size: 18px;
+}
+.f_R h1{
+    margin: 10px 0;
+    font-size: 45px;
+}
+.f_btn_t{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    background: #fff url(../img/1/quick_top.png) no-repeat center;
+    position: absolute;
+    right: 0;
+    top: -13%;
+}
+
+
+
+
+@font-face { /* 메뉴 폰트 */
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face { 
+    font-family: 'NotoSansKR';
+    font-style: normal;
+    font-weight: 900;
+    src: url(../font/NotoSansKR-Bold.otf)
+}
+@font-face { 
+    font-family: 'NotoSansKR';
+    font-style: normal;
+    font-weight: 500;
+    src: url(../font/NotoSansKR-Medium.otf)
+}   
+@font-face { 
+    font-family: 'NotoSansKR';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../font/NotoSansKR-Regular.otf)
+}  
+@font-face { 
+    font-family: 'NotoSansKR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(../font/NotoSansKR-Thin.otf)
+}
