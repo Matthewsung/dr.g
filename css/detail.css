@@ -120,28 +120,36 @@ section:not(.tob_banner_box){
 .plus{
     background: url(../img/3/count_plus.gif) no-repeat center ;
 }
+.share_icon{
+    position: relative;
+}
 .share_btn{
     width: 2em;
     height: 2em;
     background: url(../img/3/share_icon.png) no-repeat center;
+    
 }
 .url_btn{
     width: 2em;
     height: 2em;
     background: url(../img/3/share_url_icon.png) no-repeat center;
-    transform: translateX(30px);
     opacity: 0;
     pointer-events: none;
     transition: all 0.5s;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 .facebook_btn{
     width: 3em;
     height: 2em;
     background: url(../img/3/share_facebook_icon.png) no-repeat center;
-    transform: translateX(30px);
     opacity: 0;
     pointer-events: none;
     transition: all 0.5s;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 .share_btn{
     width: 2em;
@@ -629,5 +637,23 @@ section:not(.tob_banner_box){
 }
 
 
-
+@media screen and (max-width:1100px){
+    .item_title {
+        font-size: 25px;
+    }
+    .item_sub_title {
+        font-size: 18px;
+        margin: 15px 0;
+    }
+    .option_box table {
+        margin: 30px 0;
+        font-size: 17px;
+    }
+    .font_size {
+        font-size: 23px;
+    }
+    .total_price_box {
+        padding-top: 10px;
+    }
+}
 

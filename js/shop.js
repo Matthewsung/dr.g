@@ -61,20 +61,27 @@ $(document).ready(function(){
 
 
     $(window).scroll(function(){
-        // 스크롤량
         let win_scroll = $(window).scrollTop(); 
         let win_h =$(window).height();
         let doc_h = $('main').height() + 300;
         let pos_Y = (win_h * win_scroll) / doc_h;
-        console.log(win_scroll)
-        console.log(pos_Y)
         if(win_scroll > $('.weekly_best').offset().top){
-            $('.follow_icon').animate({
-                right: "-2%",
-            },500)
-            $('.follow_icon').css({
-                top:pos_Y+"px"
-            })
+            if($(window).width() > 800){
+                $('.follow_icon').animate({
+                    right: "-2%",
+                },500)
+                $('.follow_icon').css({
+                    top:pos_Y+"px"
+                })
+            }
+            else if($(window).width() < 800){
+                $('.follow_icon').animate({right: "0%"},500)
+                $('.follow_icon').css({
+                    transform: "rotate(0deg)",
+                    right: "0",
+                    top: "auto",
+                    bottom: "0"})
+            }
         }
 
     })

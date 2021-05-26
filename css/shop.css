@@ -32,7 +32,7 @@ main{
 }
 .item_box{
     width: calc((100% - (25px * 2 * 4)) / 4);
-    margin: 100px 25px 100px 25px;
+    margin: 100px 25px 0;
     float: left;
     position: relative;
     padding: 15px;
@@ -99,7 +99,7 @@ main{
 .item_sale_icon{
     width: 65px;
     height: 30px;
-    background: url(../img/1/my_icon_15462379777.png) no-repeat center;
+    background: url(../img/1/my_icon_15462379777.png) no-repeat center / 100%;
     position: absolute;
     left: 4%;
     top: 2%;
@@ -142,10 +142,11 @@ main{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 .sale_rate{
     padding: 0px 0.7em;
-    margin: 0.39em 1em 0 0;
+    margin: 0 1em 0 0;
     font-weight: 900;
     color: #fff;
     background: #0acaad;
@@ -155,7 +156,6 @@ main{
 }
 .s_price{
     font-size: 28px;
-    line-height: 36px;
 }
 
 /*  따라다니는 아이콘 */
@@ -168,4 +168,75 @@ main{
 }
 .follow_icon img{
     width: 100%;
+}
+@media screen and (max-width:1440px){
+    .t_item_box {
+        padding-left: 0;
+    }
+    .item_name {
+        font-size: 20px;
+    }
+    .o_price,
+    .sale_rate {
+        font-size: 14px;
+    }
+    .s_price {
+        font-size: 24px;
+    }
+    
+}
+@media screen and (max-width:1100px){
+    .item_box {
+        width: calc((100% - (25px * 2 * 3)) / 3);
+    }
+    .t_item_box {
+        padding-left: 0;
+    }
+    .item_name {
+        font-size: 17px;
+    }
+    .o_price,
+    .sale_rate {
+        font-size: 13px;
+    }
+    
+}
+@media screen and (max-width:800px){
+    .item_box {
+        width: calc((100% - (15px * 2 * 3)) / 3);
+        margin: 100px 15px 0;
+        padding: 0px;
+    }
+    .item_sale_icon {
+        width: 55px;
+        height: 25px;
+    }
+    .real_price {
+        display: block;
+    }
+    .sale_rate {
+        padding: 0.2em 0.4em;
+        margin: 0 0.5em 0 0;
+        line-height: 1em;
+        height: 1em;
+        width: 2.5em;
+        margin: 0 auto;
+    }
+    .item_name {
+        font-size: 16px;
+    }
+    .s_price {
+        font-size: 18px;
+    }    
+}
+@media screen and (max-width : 420px){
+    .item_box {
+        width: calc((100% - (10px * 2 * 2)) / 2);
+        margin: 100px 10px 0;
+    }
+}
+@media screen and (max-width : 300px){
+    .item_box {
+        width: calc((100% - (10px * 2 * 1)) / 1);
+    }
 }

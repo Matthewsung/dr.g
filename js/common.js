@@ -122,7 +122,7 @@ $(document).ready(function(){
         $('.tob_banner_box').toggleClass('tob_banner_box_act');
         $(this).toggleClass('t_banner_icon_act');
     })
-
+    // footer 버튼 누를시 가장 위로 이동
     $('.f_btn_t').on('click',function(){
         $('html, body').animate({scrollTop:"0"},1000)
     })

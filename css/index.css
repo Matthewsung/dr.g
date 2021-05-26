@@ -180,6 +180,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: center;
 }
 .c_price{
     text-align: center;
@@ -480,7 +481,7 @@
         margin: 15px 0;
     }
     .c_sub_txt h4 {
-        font-size: 18px;
+        font-size: 16px;
     }
     .c_sub_txt div {
         font-size: 14px;
@@ -499,5 +500,99 @@
     }
     .content_main_txt div {
         font-size: 16px;
+    }
+    .new{
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+    .contents{
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+    .notice{
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+}
+@media screen and (max-width:768px){
+    .title {
+        font-size: 35px;
+    }
+    .content_main_txt h4 {
+        font-size: 23px;
+        margin: 10px 0;
+    }
+    .content_main_txt div {
+        font-size: 14px;
+    }
+    .c_sub_txt h4 {
+        font-size: 16px;
+    }
+    .c_sub_txt div {
+        font-size: 13px;
+    }
+    .contents_box {
+        display: block;
+    }
+    .content_main_box {
+        width: 100%;
+    }
+    .content_sub {
+        width: 100%;
+        padding: 0;
+        padding-bottom: 140%;
+        margin-top: 50px;
+    }
+    .notice .content_box {
+        display: block;
+    }
+    .content_sm_box {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+}
+@media screen and (max-width:420px){
+    .m_banner_icon {
+        left: auto;
+        right: 0;
+        justify-content: center;
+    }
+    .m_banner_icon p {
+        font-size: 13px;
+        padding: 0 3px;
+    }
+    .m_btn {
+        width: 20px;
+        margin: 0 3px;
+    }
+    .btn_R {
+        background-position: -20px;
+    }    
+    .sec {
+        margin-bottom: 30px;
+    }
+    .title {
+        font-size: 25px;
+    }
+    .content {
+        width: calc((100% - (20px * 1)) / 2);
+        top: 0;
+    }
+    .content:nth-child(3n) {
+        margin-right: 20px;
+    }
+    .content:nth-child(2n) {
+        margin-right: 0px;
+    }
+    .c_rank {
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+    }
+    .content_sub {
+        height: 31em;
+    }
+    .box_bot {
+        font-size: 12px;
     }
 }

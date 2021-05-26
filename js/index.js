@@ -32,8 +32,14 @@ function Content_move(){
                 $('.new .content_box').css({left: -1 *((n_box_W-window_W) * m_pos_X) / window_W})
             })
         }
-        else{
+        else if(window_W < 1100){
             console.log("작아요")
+            $('.best').on('mousemove',function(event){
+                $('.best .content_box').css({left: 0})
+            })
+            $('.new').on('mousemove',function(event){
+                $('.new .content_box').css({left: 0})
+            })
         }
     }
     // title 하나씩 올라오는 함수
@@ -57,16 +63,6 @@ function Content_move(){
             })(i);
         }
     }
-    // 요소 지우기
-    // function Delete_content(){
-    //     setTimeout(function(){
-    //         $('.best .content').eq(4).remove()
-    //         $('.best .content').eq(5).remove()
-    //         $('.new .content').eq(4).remove()
-    //         $('.new .content').eq(5).remove()
-
-    //     },300)
-    // }
 /*////////////////////////////////////////////////// 함수 모음 끝///////////////////////////////////////////////////*/
     let list="";
     // 배너 사진 넣기
@@ -188,14 +184,16 @@ $(window).resize(function(){
         let b_o_top = $('.main_banner_box').offset().top; 
         let b_height = $('.m_banner').height();
         let show_best = $('.main_banner_box').offset().top + ($('.m_banner').height() * 0.1);
-        let new_o_top = $('.best .title_box').offset().top ;
-        let show_new = new_o_top + ($('.best').height()*0.2);
+        let best_o_top = $('.best .title_box').offset().top ;
+        let new_o_top = $('.new .title_box').offset().top ;
+        let show_new = new_o_top - ($('.best').height()*0.8);
+        let show_contents = new_o_top + ($('.new').height()*0.5);
         // best 아이템 순서대로 올라옴
         if($(window).scrollTop() >= show_best){
             Content_up('.best .content')
         }
         // new title 올라오기
-        if($(window).scrollTop() >= new_o_top){
+        if($(window).scrollTop() >= best_o_top){
             Title_up('.new .title')
         }
         // new의 아이템 순서대로 올라옴
@@ -203,58 +201,22 @@ $(window).resize(function(){
             Content_up('.new .content');
         }
         // content title 올라오기
-        let show_contents = $('.mid_banner').offset().top - ($('.mid_banner').height()*2)
         if($(window).scrollTop() >= show_contents){
             Title_up('.contents .title')
         }
         // 컨텐츠 양 옆에서 나오기
-        let show_content_box = $('.mid_banner').offset().top - ($('.mid_banner').height()*0.5)
+        let show_content_box = new_o_top +($('.new').height()*0.7);
         if($(window).scrollTop() >= show_content_box){
             $('.content_main_box').addClass('content_show_act')
             $('.content_sub').addClass('content_show_act')
         }
         // 공지사항 title 올라오기
-        let show_notice = $('.video_sec').offset().top - ($('.video_sec').height() * 0.5);
+        let show_notice = $('.contents .title').offset().top + ($('.contents .title').height() * 0.9);
         if($(window).scrollTop() >= show_notice){
             Title_up('.notice .title')
         }
     })
 /////////////////////지금 만드는중////////////////////////////
-
-// $(window).resize(function(){
-//     let win_w = $(window).width() + 17;
-//     if(win_w < 1100){
-//         Delete_content()
-//     }
-// })
-// Delete_content()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
