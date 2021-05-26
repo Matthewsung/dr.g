@@ -15,20 +15,26 @@ $(document).ready(function(){
         },timer)
     }
 // 베스트 신제품 움직이는 함수
-    function Content_move(){
-        let window_W = window.innerWidth
+function Content_move(){
+        let window_W = $(window).innerWidth();
         let b_box_o_L = $('.best .content_box').offset().left;
         let b_box_W = $('.best .content_box').innerWidth() +b_box_o_L
-        $('.best').on('mousemove',function(event){
-            let m_pos_X = event.clientX;
-            $('.best .content_box').css({left: -1 *((b_box_W-window_W) * m_pos_X) / window_W})
-        })
         let n_box_o_L = $('.new .content_box').offset().left;
         let n_box_W = $('.new .content_box').innerWidth() +n_box_o_L
-        $('.new').on('mousemove',function(event){
-            let m_pos_X = event.clientX;
-            $('.new .content_box').css({left: -1 *((n_box_W-window_W) * m_pos_X) / window_W})
-        })
+        if(window_W > 1100){
+            console.log("커요")
+            $('.best').on('mousemove',function(event){
+                let m_pos_X = event.clientX;
+                $('.best .content_box').css({left: -1 *((b_box_W-window_W) * m_pos_X) / window_W})
+            })
+            $('.new').on('mousemove',function(event){
+                let m_pos_X = event.clientX;
+                $('.new .content_box').css({left: -1 *((n_box_W-window_W) * m_pos_X) / window_W})
+            })
+        }
+        else{
+            console.log("작아요")
+        }
     }
     // title 하나씩 올라오는 함수
     function Title_up (box){
@@ -51,6 +57,16 @@ $(document).ready(function(){
             })(i);
         }
     }
+    // 요소 지우기
+    // function Delete_content(){
+    //     setTimeout(function(){
+    //         $('.best .content').eq(4).remove()
+    //         $('.best .content').eq(5).remove()
+    //         $('.new .content').eq(4).remove()
+    //         $('.new .content').eq(5).remove()
+
+    //     },300)
+    // }
 /*////////////////////////////////////////////////// 함수 모음 끝///////////////////////////////////////////////////*/
     let list="";
     // 배너 사진 넣기
@@ -70,17 +86,19 @@ $(document).ready(function(){
     for(let i=0; i<6; i++){
         list = "";
         list += '<div class="content">';
-        list +=     '<div class="c_img">';
-        list +=         '<img src="img/1/'+Img_list[1][i].src+'" alt="베스트1">';
-        list +=     '</div>';
-        list +=     '<div class="c_rank">'+(i+1)+'</div>';
-        list +=     '<div class="c_price_box">';
-        list +=         '<div class="c_name">'+Img_list[1][i].name+'</div>';
-        list +=         '<div class="c_price">';
-        list +=             '<span>'+Img_list[1][i].price+'</span><p>'+Img_list[1][i].s_price+'</p>';
+        list +=     '<a href="detail.html">'
+        list +=         '<div class="c_img">';
+        list +=             '<img src="img/1/'+Img_list[1][i].src+'" alt="베스트1">';
         list +=         '</div>';
-        list +=         '<div class="c_star"></div>';
-        list +=     '</div>';
+        list +=         '<div class="c_rank">'+(i+1)+'</div>';
+        list +=         '<div class="c_price_box">';
+        list +=             '<div class="c_name">'+Img_list[1][i].name+'</div>';
+        list +=             '<div class="c_price">';
+        list +=                 '<span>'+Img_list[1][i].price+'</span><p>'+Img_list[1][i].s_price+'</p>';
+        list +=             '</div>';
+        list +=             '<div class="c_star"></div>';
+        list +=         '</div>';
+        list +=     '</a>'
         list += '</div>';
         $('.best .content_box').append(list);
     }
@@ -88,17 +106,19 @@ $(document).ready(function(){
     for(let i=0; i<Img_list[2].length; i++){
         list = "";
         list += '<div class="content">';
-        list +=     '<div class="c_img">';
-        list +=         '<img src="img/1/'+Img_list[2][i].src+'" alt="베스트'+(i+1)+'">';
-        list +=     '</div>';
-        list +=     '<div class=c_new_sale><p class="c_icon c_new">NEW</p><p class="c_icon c_sale">SALE</p></div>'
-        list +=     '<div class="c_price_box">';
-        list +=         '<div class="c_name">'+Img_list[2][i].name+'</div>';
-        list +=         '<div class="c_price">';
-        list +=             '<span>'+Img_list[2][i].price+'</span><p>'+Img_list[2][i].s_price+'</p>';
+        list +=     '<a href="detail.html">'
+        list +=         '<div class="c_img">';
+        list +=             '<img src="img/1/'+Img_list[2][i].src+'" alt="베스트'+(i+1)+'">';
         list +=         '</div>';
-        list +=         '<div class="c_star"></div>';
-        list +=     '</div>';
+        list +=         '<div class=c_new_sale><p class="c_icon c_new">NEW</p><p class="c_icon c_sale">SALE</p></div>'
+        list +=         '<div class="c_price_box">';
+        list +=             '<div class="c_name">'+Img_list[2][i].name+'</div>';
+        list +=             '<div class="c_price">';
+        list +=                 '<span>'+Img_list[2][i].price+'</span><p>'+Img_list[2][i].s_price+'</p>';
+        list +=             '</div>';
+        list +=             '<div class="c_star"></div>';
+        list +=         '</div>';
+        list +=     '</a>'
         list += '</div>';
         $('.new .content_box').append(list);
     }
@@ -121,7 +141,11 @@ $(document).ready(function(){
     Content_move()
     // 베스트 제목 나타나기
     Title_up('.best .title')
+$(window).resize(function(){
+    window_W = $(window).innerWidth();
 
+    Content_move()
+})
 /*////////////////////////////////////////////////// DOM 생성시 실행될 것들 끝 //////////////////////////////////이벤트 관련/////////////////*/
     // 배너 클릭시 움직임
     $(document).on('click','.btn_L',function(){
@@ -183,6 +207,12 @@ $(document).ready(function(){
         if($(window).scrollTop() >= show_contents){
             Title_up('.contents .title')
         }
+        // 컨텐츠 양 옆에서 나오기
+        let show_content_box = $('.mid_banner').offset().top - ($('.mid_banner').height()*0.5)
+        if($(window).scrollTop() >= show_content_box){
+            $('.content_main_box').addClass('content_show_act')
+            $('.content_sub').addClass('content_show_act')
+        }
         // 공지사항 title 올라오기
         let show_notice = $('.video_sec').offset().top - ($('.video_sec').height() * 0.5);
         if($(window).scrollTop() >= show_notice){
@@ -191,7 +221,13 @@ $(document).ready(function(){
     })
 /////////////////////지금 만드는중////////////////////////////
 
-
+// $(window).resize(function(){
+//     let win_w = $(window).width() + 17;
+//     if(win_w < 1100){
+//         Delete_content()
+//     }
+// })
+// Delete_content()
 
 
 
