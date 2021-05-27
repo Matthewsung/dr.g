@@ -2,6 +2,9 @@ $(document).ready(function(){
 
     //공유버튼 나오고 말고
 $('.share_btn').on('click',function(){
+    if($(window).width()<1100){
+        $('.facebook_btn').toggleClass('facebook_btn_act')
+    }
     $('.url_btn').toggleClass('sharebtn_act');
     $('.facebook_btn').toggleClass('sharebtn_act')
     $(this).toggleClass('share_btn_color')
@@ -16,7 +19,6 @@ $('.n_t_arr').on('click',function(){
 // 작은 사진에 마우스 들어가면 큰 사진 변경
 $('.sm_img').on('mouseenter',function(){
     $('.show_img_act').removeClass('show_img_act')
-    console.log($(this).index())
     $('.show_img').eq($(this).index()).addClass('show_img_act')
 })
 
