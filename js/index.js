@@ -15,14 +15,13 @@ $(document).ready(function(){
         },timer)
     }
 // 베스트 신제품 움직이는 함수
+let window_W = $(window).innerWidth();
 function Content_move(){
-        let window_W = $(window).innerWidth();
         let b_box_o_L = $('.best .content_box').offset().left;
         let b_box_W = $('.best .content_box').innerWidth() +b_box_o_L
         let n_box_o_L = $('.new .content_box').offset().left;
         let n_box_W = $('.new .content_box').innerWidth() +n_box_o_L
         if(window_W > 1100){
-            console.log("커요")
             $('.best').on('mousemove',function(event){
                 let m_pos_X = event.clientX;
                 $('.best .content_box').css({left: -1 *((b_box_W-window_W) * m_pos_X) / window_W})
@@ -33,7 +32,6 @@ function Content_move(){
             })
         }
         else if(window_W < 1100){
-            console.log("작아요")
             $('.best').on('mousemove',function(event){
                 $('.best .content_box').css({left: 0})
             })
@@ -63,6 +61,24 @@ function Content_move(){
             })(i);
         }
     }
+    // 메인 컨텐츠 호버시 나오는 함수
+    function Content_show(){
+        $('.content_main, .content_main_txt').on('mouseenter',function(){
+            if(window_W > 768){
+                $('.c_m_sub_1').css({transform: "scale(1) rotate(0deg) translate(210%, -20%)"});
+                $('.c_m_sub_2').css({transform: "scale(1) rotate(0deg) translate(228%,30%) "})
+                $('.content_sub').css({display:"none"})
+            }
+        })
+        $('.content_main, .content_main_txt').on('mouseleave',function(){
+            if(window_W > 768){
+                $('.c_m_sub_1').css({transform: "scale(0) rotate(180deg) translate(0) "});
+                $('.c_m_sub_2').css({transform: "scale(0) rotate(180deg) translate(0) "})
+                $('.content_sub').css({display:"block"})
+            }
+        })
+    }
+
 /*////////////////////////////////////////////////// 함수 모음 끝///////////////////////////////////////////////////*/
     let list="";
     // 배너 사진 넣기
@@ -124,6 +140,8 @@ function Content_move(){
     let timer = 2000;
     let b_interval;
     let b_number;
+    let mb_index = 0;
+
     /*////////////////////////////////////////////////// 변수 끝 ///////////////////////////////////////////////////*/
     
 /*////////////////////////////////////////////////// DOM 생성시 실행될 것들 ///////////////////////////////////////////////////*/
@@ -137,10 +155,19 @@ function Content_move(){
     Content_move()
     // 베스트 제목 나타나기
     Title_up('.best .title')
+    // 컨텐츠 호버시 나타나기
+    Content_show()
+    //mid_banner 계속 지나가게 하는 함수
+    setInterval(function(){
+        $('.mb').eq(mb_index%$('.mb').length).animate({left:"-100%"},10000, 'linear').animate({left:"100%"},0)
+        $('.mb').eq((mb_index + 1)%$('.mb').length).animate({left:"0"},10000, 'linear')
+        mb_index++
+    })
 $(window).resize(function(){
     window_W = $(window).innerWidth();
 
     Content_move()
+    Content_show()
 })
 /*////////////////////////////////////////////////// DOM 생성시 실행될 것들 끝 //////////////////////////////////이벤트 관련/////////////////*/
     // 배너 클릭시 움직임
@@ -217,6 +244,17 @@ $(window).resize(function(){
         }
     })
 /////////////////////지금 만드는중////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
 
 
 

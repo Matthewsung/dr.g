@@ -17,7 +17,7 @@ a{
     text-decoration: none;
 }
 body > *{
-    font-family: 'NotoSansKR', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 .w_1440{
     max-width: 1440px;
@@ -351,7 +351,7 @@ footer{
     font-weight: normal;
     font-style: normal;
 }
-
+/* 
 @font-face { 
     font-family: 'NotoSansKR';
     font-style: normal;
@@ -375,7 +375,7 @@ footer{
     font-style: normal;
     font-weight: 100;
     src: url(../font/NotoSansKR-Thin.otf)
-}
+} */
 
 @media screen and (max-width:1250px){
     .m_title {
